@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+def show_lists(request):
+	test = '<h1>This is LISTS app</h1>'
+	return HttpResponse(test)
