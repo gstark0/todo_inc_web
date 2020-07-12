@@ -6,4 +6,20 @@ html, body {
 	background-color: #161F4D;
 	margin: 0;
 	padding: 0;
+	height: 100vh;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#app {
+	width: 375px;
+	height: 80%;
+	max-height: 900px;
+	background-color: #F0F2F7;
+	border-radius: 20px;
+	box-shadow: 0 3px 100px rgba(0, 0, 0, 0.5);
 }
