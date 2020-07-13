@@ -12,20 +12,23 @@
 	<div id="app">
 		<div class="wrapper">
 			<div id="title-container">
-				<h1>Todo, inc</h1>
-				<h2>My lists</h2>
+				<h1>{{ list.name }} #{{ list.code }}</h1>
+				<h2>{{ tasks|length }} task(s)</h2>
 			</div>
 
 			<div id="lists-container">
 				<div id="lists-wrapper">
-					{% for list in lists %}
-						<a class="list" href="/lists/{{list.code}}">{{ list.name }}</a>
+					{% for task in tasks %}
+						<label class="task" for="checkbox-{{task.id}}">
+							<input type="checkbox" id="checkbox-{{task.id}}"/>
+							<span>{{ task.name }}</span>
+						</label>
 					{% endfor %}
 				</div>
 			</div>
 
 			<div id="add-list-container">
-				<a href="#">Add list</a>
+				<a href="#">+ Add task</a>
 			</div>
 		</div>
 	</div>

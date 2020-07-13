@@ -67,19 +67,6 @@ h2 {
 	overflow: visible;
 }
 
-.list {
-	display: flex;
-	align-items: center;
-	background-color: #3FA2FC;
-	color: white;
-	text-decoration: none;
-	font-size: 18px;
-	font-weight: bold;
-	padding: 15px 20px;
-	border-radius: 20px;
-	box-shadow: 0 20px 50px rgba(63, 162, 252, 0.3);
-}
-
 .list + .list {
 	margin-top: 15px;
 }
@@ -110,4 +97,35 @@ h2 {
 	box-shadow: 0 20px 50px rgba(69, 60, 201, 0.5);
 	font-size: 18px;
 	font-weight: bold;
+}
+
+/* -------- LISTS -------- */
+.list {
+	display: flex;
+	align-items: center;
+	background-color: #3FA2FC;
+	color: white;
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 15px 20px;
+	border-radius: 20px;
+	box-shadow: 0 20px 50px rgba(63, 162, 252, 0.3);
+}
+
+/* -------- TASKS -------- */
+.task {
+	display: flex;
+	align-items: center;
+	background-color: white;
+	color: black;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 15px 20px;
+	border-radius: 20px;
+	box-shadow: 0 20px 50px rgba(157, 157, 157, 0.4);
+}
+
+.task input {
+	margin-right: 10px;
 }
