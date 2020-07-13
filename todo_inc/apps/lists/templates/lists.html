@@ -18,8 +18,9 @@
 
 			<div id="lists-container">
 				<div id="lists-wrapper">
-					<a class="list" href="#">Things to do today</a>
-					<a class="list" href="#">Things to do today</a>
+					{% for list in lists %}
+						<a class="list" href="#">{{ list.name }}</a>
+					{% endfor %}
 				</div>
 			</div>
 
