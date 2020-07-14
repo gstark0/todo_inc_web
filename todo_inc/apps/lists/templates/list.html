@@ -28,9 +28,15 @@
 			</div>
 
 			<div id="add-list-container">
-				<a href="#">+ Add task</a>
+				<a href="javascript:addTask();">+ Add task</a>
 			</div>
 		</div>
 	</div>
+
+	<script>
+		function addTask() {
+			taskName = prompt('What task would you like to add?')
+		}
+	</script>
 </body>
 </html>
