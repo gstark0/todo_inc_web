@@ -43,9 +43,44 @@ def general_lists(request):
 
 		return JsonResponse({'code': random_code, 'response': 1})
 
+
+@csrf_exempt
+@require_http_methods(['DELETE'])
 def specific_task(request, task_id=None):
-	pass
+	if request.method == 'DELETE':
+		try:
+			task_instance = Task.objects.get(pk=task_id)
+			task_instance.delete()
+			return JsonResponse({'response': 1})
+		except Task.DoesNotExist:
+			return JsonResponse({'response': 0})
 
-
+@csrf_exempt
+@require_http_methods(['GET', 'POST'])
 def general_tasks(request):
-	pass
+	if request.method == 'GET':
+		all_tasks = Task.objects.all().values('pk', 'name', 'completed', 'list_id__code')
+		return JsonResponse({'tasks': list(all_tasks)})
+	elif request.method == 'POST':
+		data = json.loads(request.body)
+		task_name = data['name']
+		list_code = data['code']
+		try:
+			list_instance = List.objects.get(code=list_code)
+			new_task = Task(name=task_name, list_id=list_instance)
+			new_task.save()
+			return JsonResponse({'response': 1})
+
+		except List.DoesNotExist:
+			return JsonResponse({'response': 0})
+
+@require_http_methods(['GET'])
+def complete_task(request, task_id=None):
+	try:
+		task_instance = Task.objects.get(pk=task_id)
+		task_instance.completed = not task_instance.completed
+		task_instance.save()
+		return JsonResponse({'response': 1})
+
+	except Task.DoesNotExist:
+		return JsonResponse({'response': 0})
