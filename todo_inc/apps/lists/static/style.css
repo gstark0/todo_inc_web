@@ -67,10 +67,6 @@ h2 {
 	overflow: visible;
 }
 
-.list + .list {
-	margin-top: 15px;
-}
-
 #add-list-container {
 	height: 130px;
 	width: 100%;
@@ -113,6 +109,10 @@ h2 {
 	box-shadow: 0 20px 50px rgba(63, 162, 252, 0.3);
 }
 
+.list + .list {
+	margin-top: 15px;
+}
+
 /* -------- TASKS -------- */
 .task {
 	display: flex;
@@ -128,4 +128,8 @@ h2 {
 
 .task input {
 	margin-right: 10px;
+}
+
+.task + .task {
+	margin-top: 15px;
 }
