@@ -35,7 +35,20 @@
 
 	<script>
 		function addTask() {
-			taskName = prompt('What task would you like to add?')
+			taskName = prompt('What task would you like to add?');
+			fetch('../api/tasks/', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					name: taskName,
+					code: '{{ list.code }}'
+				})
+			})
+			.then(r => {
+				window.location.reload();
+			});
 		}
 	</script>
 </body>
