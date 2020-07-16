@@ -9,6 +9,16 @@
 	<link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
+	<div class="modal-container" id="modal-1">
+		<div class="modal">
+			<p>Would you like to create a new list or use code to add an existing one?</p>
+			<div class="modal-buttons">
+				<button onclick="newList();">New list</button>
+				<button onclick="useCode();">Use code</button>
+			</div>
+		</div>
+	</div>
+
 	<div id="app">
 		<div class="wrapper">
 			<div id="title-container">
@@ -25,9 +35,42 @@
 			</div>
 
 			<div id="add-list-container">
-				<a href="#">Add list</a>
+				<a href="javascript:toggleModal('modal-1');">Add list</a>
 			</div>
 		</div>
 	</div>
+
+	<script>
+		function toggleModal(modalName) {
+			displayProperty = getComputedStyle(document.getElementById(modalName), null).display;
+			if(displayProperty !== 'none')
+				document.getElementById(modalName).style.display = 'none';
+			else
+				document.getElementById(modalName).style.display = 'flex';
+		}
+
+		function newList() {
+			toggleModal('modal-1');
+			let listName = prompt('How do you want to name your list?');
+			fetch('./api/lists/', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					name: listName
+				})
+			}).then(response => response.json())
+			.then(response => {
+				let code = response['code'];
+				window.location.href = './' + code;
+			});
+		}
+
+		function useCode() {
+			toggleModal('modal-1');
+			let code = prompt('What\'s the 4-digit code of your list?');
+		}
+	</script>
 </body>
 </html>

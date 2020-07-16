@@ -35,7 +35,7 @@
 
 	<script>
 		function addTask() {
-			taskName = prompt('What task would you like to add?');
+			let taskName = prompt('What task would you like to add?');
 			fetch('../api/tasks/', {
 				method: 'POST',
 				headers: {
