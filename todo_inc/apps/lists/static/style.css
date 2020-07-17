@@ -95,6 +95,23 @@ h2 {
 	font-weight: bold;
 }
 
+.delete {
+	width: 25px;
+	height: 25px;
+	background-color: white;
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: auto;
+	opacity: 0;
+}
+
+.delete i {
+	font-size: 14px;
+	color: #E61313;
+}
+
 /* -------- LISTS -------- */
 .list {
 	display: flex;
@@ -107,6 +124,14 @@ h2 {
 	padding: 15px 20px;
 	border-radius: 20px;
 	box-shadow: 0 20px 50px rgba(63, 162, 252, 0.3);
+}
+
+.list:hover > .delete {
+	opacity: 1;
+}
+
+.list:hover {
+	cursor: pointer;
 }
 
 .list + .list {

@@ -29,7 +29,10 @@
 			<div id="lists-container">
 				<div id="lists-wrapper">
 					{% for list in lists %}
-						<a class="list" href="/lists/{{list.code}}">{{ list.name }}</a>
+						<div class="list" onclick="document.location.href = '/lists/{{list.code}}'">
+							{{ list.name }}
+							<a class="delete" href="javascript:deleteList('{{list.code}}');" onclick="event.stopPropagation();"><i class="far fa-trash-alt"></i></a>
+						</div>
 					{% endfor %}
 				</div>
 			</div>
@@ -71,6 +74,24 @@
 			toggleModal('modal-1');
 			let code = prompt('What\'s the 4-digit code of your list?');
 		}
+
+		function deleteList(code) {
+			let wantDelete =  confirm('Are you sure you want to delete this list? You will be able to access it again through its code.');
+			if(wantDelete) {
+				fetch('./api/lists/' + code, {
+					method: 'DELETE',
+					header: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						code: code
+					})
+				}).then(r => {
+					window.location.reload();
+				});
+			} else return False;
+		}
 	</script>
+	<script src="https://kit.fontawesome.com/9b8ac2b2e4.js" crossorigin="anonymous"></script>
 </body>
 </html>
