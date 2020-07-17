@@ -55,6 +55,7 @@
 		function newList() {
 			toggleModal('modal-1');
 			let listName = prompt('How do you want to name your list?');
+			if(!listName) return false;
 			fetch('./api/lists/', {
 				method: 'POST',
 				headers: {
@@ -73,6 +74,7 @@
 		function useCode() {
 			toggleModal('modal-1');
 			let code = prompt('What\'s the 4-digit code of your list?');
+			if(!code) return false;
 		}
 
 		function deleteList(code) {
