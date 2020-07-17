@@ -44,6 +44,8 @@
 	</div>
 
 	<script>
+		var addedCodes = JSON.parse(getCookie('codes'));
+
 		function toggleModal(modalName) {
 			displayProperty = getComputedStyle(document.getElementById(modalName), null).display;
 			if(displayProperty !== 'none')
@@ -67,6 +69,7 @@
 			}).then(response => response.json())
 			.then(response => {
 				let code = response['code'];
+				addCookieCode(code);
 				window.location.href = './' + code;
 			});
 		}
@@ -75,23 +78,52 @@
 			toggleModal('modal-1');
 			let code = prompt('What\'s the 4-digit code of your list?');
 			if(!code) return false;
+			addCookieCode(code);
+			window.location.reload();
 		}
 
 		function deleteList(code) {
 			let wantDelete =  confirm('Are you sure you want to delete this list? You will be able to access it again through its code.');
-			if(wantDelete) {
-				fetch('./api/lists/' + code, {
-					method: 'DELETE',
-					header: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						code: code
-					})
-				}).then(r => {
-					window.location.reload();
-				});
-			} else return False;
+			if(!wantDelete) return false;
+			removeCookieCode(code);
+			window.location.reload();
+			/* fetch('./api/lists/' + code, {
+				method: 'DELETE',
+				header: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					code: code
+				})
+			}).then(r => {
+				window.location.reload();
+			}); */
+		}
+
+		// Cookies
+		function getCookie(c_name) {
+			if (document.cookie.length > 0) {
+				c_start = document.cookie.indexOf(c_name + "=");
+				if (c_start != -1) {
+					c_start = c_start + c_name.length + 1;
+					c_end = document.cookie.indexOf(";", c_start);
+						if (c_end == -1) {
+							c_end = document.cookie.length;
+						}
+					return unescape(document.cookie.substring(c_start, c_end));
+				}
+			}
+			return "[]";
+		}
+
+		function addCookieCode(code) {
+			addedCodes.push(code);
+			document.cookie = "codes=" + JSON.stringify(addedCodes);
+		}
+
+		function removeCookieCode(code) {
+			addedCodes = addedCodes.filter(e => e !== code);
+			document.cookie = "codes=" + JSON.stringify(addedCodes);
 		}
 	</script>
 	<script src="https://kit.fontawesome.com/9b8ac2b2e4.js" crossorigin="anonymous"></script>
