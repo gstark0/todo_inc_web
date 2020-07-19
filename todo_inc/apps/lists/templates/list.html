@@ -19,8 +19,8 @@
 			<div id="lists-container">
 				<div id="lists-wrapper">
 					{% for task in tasks %}
-						<div class="task {% if task.completed %}completed{% endif %}">
-							<label id="checkbox-{{task.id}}-label" class="checkbox-container" for="checkbox-{{task.id}}">{{ task.name }}
+						<div class="task">
+							<label id="checkbox-{{task.id}}-label" class="checkbox-container" for="checkbox-{{task.id}}" {% if task.completed %}style="text-decoration: line-through"{% endif %}>{{ task.name }}
 								<input class="task-checkbox" type="checkbox" id="checkbox-{{task.id}}" {% if task.completed %}checked{% endif %}/>
 								<span class="checkmark"></span>
 							</label>

@@ -201,10 +201,6 @@ h2 {
 }
 
 /* Checkbox */
-.completed {
-	text-decoration: line-through;
-}
-
 .checkbox-container {
 	display: block;
 	position: relative;
