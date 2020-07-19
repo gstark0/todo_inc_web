@@ -20,8 +20,8 @@
 				<div id="lists-wrapper">
 					{% for task in tasks %}
 						<div class="task {% if task.completed %}completed{% endif %}">
-							<label class="checkbox-container" for="checkbox-{{task.id}}">{{ task.name }}
-								<input type="checkbox" id="checkbox-{{task.id}}" {% if task.completed %}checked{% endif %}/>
+							<label id="checkbox-{{task.id}}-label" class="checkbox-container" for="checkbox-{{task.id}}">{{ task.name }}
+								<input class="task-checkbox" type="checkbox" id="checkbox-{{task.id}}" {% if task.completed %}checked{% endif %}/>
 								<span class="checkmark"></span>
 							</label>
 						</div>
@@ -52,6 +52,13 @@
 				window.location.reload();
 			});
 		}
+
+		Array.prototype.forEach.call(document.getElementsByClassName('task-checkbox'), checkBox => {
+			checkBox.addEventListener('change', function() {
+				labelId = checkBox.id + '-label';
+				document.getElementById(labelId).style.textDecoration = checkBox.checked ? 'line-through' : 'none';
+			});
+		});
 	</script>
 </body>
 </html>
