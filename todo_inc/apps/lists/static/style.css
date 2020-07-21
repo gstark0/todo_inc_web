@@ -112,6 +112,10 @@ h2 {
 	color: #E61313;
 }
 
+.task:hover > .delete {
+	opacity: 1;
+}
+
 /* -------- LISTS -------- */
 .list {
 	display: flex;
