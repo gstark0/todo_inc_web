@@ -55,6 +55,7 @@
 
 		Array.prototype.forEach.call(document.getElementsByClassName('task-checkbox'), checkBox => {
 			checkBox.addEventListener('change', function() {
+				fetch('../api/tasks/' + checkBox.id.replace('checkbox-', '') + '/complete');
 				labelId = checkBox.id + '-label';
 				document.getElementById(labelId).style.textDecoration = checkBox.checked ? 'line-through' : 'none';
 			});
