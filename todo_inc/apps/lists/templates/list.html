@@ -53,6 +53,7 @@
 
 		function addTask() {
 			let taskName = prompt('What task would you like to add?');
+			if(!taskName) return;
 			fetch('../api/tasks/', {
 				method: 'POST',
 				headers: {
