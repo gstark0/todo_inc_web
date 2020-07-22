@@ -12,8 +12,13 @@
 	<div id="app">
 		<div class="wrapper">
 			<div id="title-container">
-				<h1>{{ list.name }} #{{ list.code }}</h1>
-				<h2>{{ tasks|length }} task(s)</h2>
+				<a id="back-button" href="../">
+					<i class="fas fa-arrow-left"></i>
+				</a>
+				<div id="title-text-container">
+					<h1>{{ list.name }} #{{ list.code }}</h1>
+					<h2>{{ tasks|length }} task(s)</h2>
+				</div>
 			</div>
 
 			<div id="lists-container">
