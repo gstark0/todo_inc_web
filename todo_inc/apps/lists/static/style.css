@@ -193,6 +193,10 @@ h2 {
 }
 
 /* -------- TASKS -------- */
+#list-code {
+	color: #3FA2FC;
+}
+
 #back-button {
 	align-items: center;
 	justify-content: center;
