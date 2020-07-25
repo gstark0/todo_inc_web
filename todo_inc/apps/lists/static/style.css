@@ -98,6 +98,11 @@ h2 {
 	box-shadow: 0 20px 50px rgba(69, 60, 201, 0.5);
 	font-size: 18px;
 	font-weight: bold;
+	transition: .2s;
+}
+
+#add-list-container a:hover {
+	opacity: 0.8;
 }
 
 .delete {
@@ -110,11 +115,17 @@ h2 {
 	align-items: center;
 	margin-left: auto;
 	opacity: 0;
+	transition: .2s;
 }
 
 .delete i {
 	font-size: 14px;
 	color: #E61313;
+	transition: .2s;
+}
+
+.delete:hover i {
+	opacity: 0.5;
 }
 
 .task:hover > .delete {
@@ -133,6 +144,7 @@ h2 {
 	padding: 15px 20px;
 	border-radius: 20px;
 	box-shadow: 0 20px 50px rgba(63, 162, 252, 0.3);
+	transition: .2s;
 }
 
 .list:hover > .delete {
@@ -141,6 +153,7 @@ h2 {
 
 .list:hover {
 	cursor: pointer;
+	opacity: 0.8;
 }
 
 .list + .list {
@@ -209,6 +222,11 @@ h2 {
 	box-shadow: 0 20px 50px rgba(63, 162, 252, 0.3);
 	cursor: pointer;
 	z-index: 1;
+	transition: .2s;
+}
+
+#back-button:hover {
+	opacity: 0.8;
 }
 
 #back-button i {
@@ -226,6 +244,15 @@ h2 {
 	padding: 0px 20px;
 	border-radius: 20px;
 	box-shadow: 0 20px 50px rgba(157, 157, 157, 0.4);
+	transition: .2s;
+}
+
+.task:hover {
+	color: #3FA2FC;
+}
+
+.task:hover .checkmark, .task:hover .checkmark:after {
+	border-color: #3FA2FC;
 }
 
 .task + .task {

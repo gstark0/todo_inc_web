@@ -7,6 +7,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 	{% load static %}
 	<link rel="stylesheet" href="{% static 'style.css' %}">
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
 	<div class="modal-container" id="modal-1">
@@ -28,7 +29,7 @@
 				</div>
 			</div>
 
-			<div id="lists-container">
+			<div id="lists-container" data-aos="fade-up">
 				<div id="lists-wrapper">
 					{% for list in lists %}
 						<div class="list" onclick="document.location.href = '/lists/{{list.code}}'">
@@ -45,7 +46,9 @@
 		</div>
 	</div>
 
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 	<script>
+		AOS.init();
 		var addedCodes = JSON.parse(getCookie('codes'));
 
 		// Show or hide modal

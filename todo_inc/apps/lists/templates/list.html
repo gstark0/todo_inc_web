@@ -7,6 +7,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 	{% load static %}
 	<link rel="stylesheet" href="{% static 'style.css' %}">
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
 	<div id="app">
@@ -21,7 +22,7 @@
 				</div>
 			</div>
 
-			<div id="lists-container">
+			<div id="lists-container" data-aos="fade-up">
 				<div id="lists-wrapper">
 					{% for task in tasks %}
 						<div class="task">
@@ -41,7 +42,9 @@
 		</div>
 	</div>
 
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 	<script>
+		AOS.init();
 		// Remove list from cookie
 		function deleteTask(taskId) {
 			let wantDelete =  confirm('Are you sure you want to delete this task?');
