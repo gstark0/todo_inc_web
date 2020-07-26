@@ -199,6 +199,12 @@ h2 {
 	font-size: 18px;
 	font-weight: bold;
 	outline: none;
+	transition: .2s;
+}
+
+.modal-buttons button:hover {
+	opacity: 0.8;
+	cursor: pointer;
 }
 
 .modal-buttons button + button {
