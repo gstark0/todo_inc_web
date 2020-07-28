@@ -1,5 +1,5 @@
 """
-WSGI config for todo_inc project.
+WSGI config for tasky project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'todo_inc.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tasky.settings')
 
 application = get_wsgi_application()
