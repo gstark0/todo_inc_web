@@ -15,3 +15,6 @@ class Task(models.Model):
 	name = models.CharField(max_length=50)
 	completed = models.BooleanField(default=False)
 	list_id = models.ForeignKey(List, on_delete=models.CASCADE)
+
+	class Meta:
+		ordering = ['completed']
