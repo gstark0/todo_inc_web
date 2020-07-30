@@ -147,6 +147,18 @@ h2 {
 	transition: .2s;
 }
 
+.list-2 {
+	background-color: #3F54FB;
+}
+
+.list-3 {
+	background-color: #453CC9;
+}
+
+.list-4 {
+	background-color: #803CC9;
+}
+
 .list:hover > .delete {
 	opacity: 1;
 }

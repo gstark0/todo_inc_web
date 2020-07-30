@@ -32,7 +32,7 @@
 			<div id="lists-container" data-aos="fade-up">
 				<div id="lists-wrapper">
 					{% for list in lists %}
-						<div class="list" onclick="document.location.href = '/lists/{{list.code}}'">
+						<div class="list list-{%if forloop.counter|add:2|divisibleby:4%}2{%endif%}{%if forloop.counter|add:1|divisibleby:4%}3{%endif%}{%if forloop.counter|add:4|divisibleby:4%}4{%endif%}" onclick="document.location.href = '/lists/{{list.code}}'">
 							{{ list.name }}
 							<a class="delete" href="javascript:deleteList('{{list.code}}');" onclick="event.stopPropagation();"><i class="far fa-trash-alt"></i></a>
 						</div>
